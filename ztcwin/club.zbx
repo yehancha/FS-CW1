@@ -20,7 +20,7 @@
 	|-------
 	| # members <= MaximumClubSize;
 	| committee subseteq members;
-	| committee <= MaximumCommitteeSize;
+	| # committee <= MaximumCommitteeSize;
 	| president subseteq committee
 	-------------------------------------
 	

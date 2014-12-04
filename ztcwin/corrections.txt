@@ -68,3 +68,17 @@ Fixed:
 	LHS type: UnknownType
 	RHS type: UnknownType
 	
+Error 03
+========
+Type mismatch of LHS and RHS of a system invariant at "committee <= MaximumCommitteeSize".
+
+Correction:
+Used cardinality of committee. So the correction is "# committee <= MaximumCommitteeSize"
+
+Fixed:
+--- Typing error. "club.zbx" Line 23. Type mismatch: Infix relation.
+>>>	committee <= MaximumCommitteeSize
+	Expected LHS type: Z
+	Actual LHS type: (P STUDENT)
+	Expected RHS type: Z
+	Actual RHS type: Z
