@@ -41,3 +41,21 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+*.temp
+*.dbg
+zanswin/CLASSMAN.log
+zanswin/CLASSMAN.ZBX
+*.ZED
+*.ZSL
+zanswin/MATH0.ZBX
+zanswin/MATH1.ZBX
+zanswin/zans-guide-upto-sec-3.log
+*.cfg
+*.EXE
+ztcwin/CLASSMAN.log
+ztcwin/CLASSMAN.ZBX
+ztcwin/MATH0.ZBX
+ztcwin/MATH1.ZBX
+ztcwin/test1.log
+ztcwin/test1.zbx
