@@ -98,3 +98,19 @@ Fixed:
 	Actual LHS type: STUDENT
 	Expected RHS type: (P [X])
 	Actual RHS type: (P STUDENT)
+	
+Error 05
+========
+Type mismatch of LHS and RHS of a system invariant at "members < MaximumClubSize".
+
+Correction:
+Used cardinality of members. So the correction is "# members < MaximumClubSize"
+
+Fixed:
+--- Typing error. "club.zbx" Line 34. Type mismatch: Infix relation.
+>>>	members < MaximumClubSize
+	Expected LHS type: Z
+	Actual LHS type: (P STUDENT)
+	Expected RHS type: Z
+	Actual RHS type: Z
+	
