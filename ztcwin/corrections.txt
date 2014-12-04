@@ -82,3 +82,19 @@ Fixed:
 	Actual LHS type: (P STUDENT)
 	Expected RHS type: Z
 	Actual RHS type: Z
+	
+Error 04
+========
+"president" has defined as a subset of "committee" set which is not true.
+"president" is an element of "committee" set.
+
+Correction:
+Changed "president subseteq committee" to "president in committee".
+
+Fixed:
+--- Typing error. "club.zbx" Line 24. Type mismatch: Infix relation.
+>>>	president subseteq committee
+	Expected LHS type: (P [X])
+	Actual LHS type: STUDENT
+	Expected RHS type: (P [X])
+	Actual RHS type: (P STUDENT)
