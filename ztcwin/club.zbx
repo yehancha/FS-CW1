@@ -19,9 +19,9 @@
 	| president : STUDENT
 	|-------
 	| # members <= MaximumClubSize;
-	| committee subeq members;
+	| committee subseteq members;
 	| committee <= MaximumCommitteeSize;
-	| president subeq committee
+	| president subseteq committee
 	-------------------------------------
 	
 	---JoinClub_Success------------------

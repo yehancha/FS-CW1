@@ -1,0 +1,20 @@
+Error 01
+========
+Have used wrong syntax "subeq" at two points.
+
+--- Syntax error. "club.zbx" Line 22, near ";"
+	Expecting: "=" "in" (infix relation symbol) "_inrel-id_"
+>>>	committee subeq members ;
+--- Syntax error. "club.zbx" Line 26, near "	-------------------------------------
+"
+	Expecting: "=" "in" (infix relation symbol) "_inrel-id_"
+>>>		-------------------------------------
+
+Correction:
+Changed both "subeq" to "subseteq"
+
+Error 02
+========
+Spelling mistake in Basic Type "STUDENTS". It must be "STUDENT" without taling 'S'.
+Because of this, number of errors occurred.
+
