@@ -1,0 +1,18 @@
+
+Log opened at: Fri Dec 05 01:26:49 2014
+
+... Initializing.
+... Loading Z mathematical tools library: math0.zbx
+Parsing main file: club.zbx
+... Type checking Given set. "club.zbx" Line 4
+... Type checking Free type definition: CLUB_NAME. "club.zbx" Line 6
+... Type checking Axiom box. "club.zbx" Lines 8-11
+... Type checking Free type definition: REPORT. "club.zbx" Line 13
+... Type checking Schema box: Club. "club.zbx" Lines 15-24
+... Type checking Schema box: JoinClub_Success. "club.zbx" Lines 27-37
+End of main file: club.zbx
+Log written in "club.log"
+
+
+Log closed at: Fri Dec 05 01:26:49 2014
+
