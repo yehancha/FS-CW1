@@ -1,23 +1,14 @@
-Error 01
-========
-Have used wrong syntax "subeq" at two points.
 
---- Syntax error. "club.zbx" Line 22, near ";"
-	Expecting: "=" "in" (infix relation symbol) "_inrel-id_"
->>>	committee subeq members ;
---- Syntax error. "club.zbx" Line 26, near "	-------------------------------------
-"
-	Expecting: "=" "in" (infix relation symbol) "_inrel-id_"
->>>		-------------------------------------
+Log opened at: Fri Dec 05 00:35:09 2014
 
-Correction:
-Changed both "subeq" to "subseteq"
-
-Error 02
-========
-Spelling mistake in Basic Type "[ STUDENTS ]". It must be "STUDENT" without taling 'S'.
-Because of this, number of errors occurred.
-
+... Initializing.
+... Loading Z mathematical tools library: math0.zbx
+Parsing main file: club.zbx
+... Type checking Given set. "club.zbx" Line 4
+... Type checking Free type definition: CLUB_NAME. "club.zbx" Line 6
+... Type checking Axiom box. "club.zbx" Lines 8-11
+... Type checking Free type definition: REPORT. "club.zbx" Line 13
+... Type checking Schema box: Club. "club.zbx" Lines 15-24
 --- Typing error. "club.zbx" Line 17. Undefined name: STUDENT
 --- Typing error. "club.zbx" Line 17. Set expected: 
 >>>	STUDENT
@@ -82,6 +73,9 @@ Because of this, number of errors occurred.
 	LHS type: UnknownType
 	RHS type: UnknownType
 --- Warning. Indefinite type in schema box.
+End of main file: club.zbx
+Log written in "club.log"
 
-Correction:
-Changed "[ STUDENTS ]" to "[ STUDENT ]".
+
+Log closed at: Fri Dec 05 00:35:09 2014
+
