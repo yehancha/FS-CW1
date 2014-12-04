@@ -21,7 +21,7 @@
 	| # members <= MaximumClubSize;
 	| committee subseteq members;
 	| # committee <= MaximumCommitteeSize;
-	| president subseteq committee
+	| president in committee
 	-------------------------------------
 	
 	---JoinClub_Success------------------
