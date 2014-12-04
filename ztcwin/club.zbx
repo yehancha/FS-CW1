@@ -1,0 +1,40 @@
+
+	specification
+	
+	[ STUDENTS ]
+	
+	CLUB_NAME ::= ECS_Club | Football | Tennis | Chess | Drama
+	
+	| MaximumCommitteeSize : N;
+	| MaximumClubSize : N
+	|-------
+	| MaximumCommitteeSize <= MaximumClubSize
+	
+	REPORT ::= Success
+	
+	---Club------------------------------
+	| name : CLUB_NAME;
+	| members : P STUDENT;
+	| committee : P STUDENT;
+	| president : STUDENT
+	|-------
+	| # members <= MaximumClubSize;
+	| committee subeq members;
+	| committee <= MaximumCommitteeSize;
+	| president subeq committee
+	-------------------------------------
+	
+	---JoinClub_Success------------------
+	| members', members : P STUDENT;
+	| committee', committee : P STUDENT;
+	| newmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| newmember? notin members;
+	| members < MaximumClubSize;
+	| members' = members || newmember?;
+	| committee' = committee;
+	| report! = Success
+	-------------------------------------
+	
+	end specification
