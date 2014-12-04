@@ -1,0 +1,77 @@
+
+Log opened at: Thu Dec 04 23:26:51 2014
+
+... Initializing.
+... Loading Z mathematical tools library: math0.zbx
+Parsing main file: club.zbx
+... Type checking Given set. "club.zbx" Line 4
+... Type checking Free type definition: CLUB_NAME. "club.zbx" Line 6
+... Type checking Axiom box. "club.zbx" Lines 8-11
+... Type checking Free type definition: REPORT. "club.zbx" Line 13
+--- Syntax error. "club.zbx" Line 22, near ";"
+	Expecting: "=" "in" (infix relation symbol) "_inrel-id_"
+>>>	committee subeq members ;
+--- Syntax error. "club.zbx" Line 26, near "	-------------------------------------
+"
+	Expecting: "=" "in" (infix relation symbol) "_inrel-id_"
+>>>		-------------------------------------
+
+... Type checking Schema box: Club. "club.zbx" Lines 15-23
+--- Typing error. "club.zbx" Line 17. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 17. Set expected: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 17. Illegal type expression: 
+>>>	P STUDENT
+--- Typing error. "club.zbx" Line 18. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 18. Set expected: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 18. Illegal type expression: 
+>>>	P STUDENT
+--- Typing error. "club.zbx" Line 19. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 19. Illegal type expression: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 23. Type mismatch: Infix relation.
+>>>	committee <= MaximumCommitteeSize
+	Expected LHS type: Z
+	Actual LHS type: UnknownType
+	Expected RHS type: Z
+	Actual RHS type: Z
+--- Warning. Indefinite type in schema box.
+... Type checking Schema box: JoinClub_Success. "club.zbx" Lines 27-37
+--- Typing error. "club.zbx" Line 28. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 28. Set expected: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 28. Illegal type expression: 
+>>>	P STUDENT
+--- Typing error. "club.zbx" Line 29. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 29. Set expected: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 29. Illegal type expression: 
+>>>	P STUDENT
+--- Typing error. "club.zbx" Line 30. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 30. Illegal type expression: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 33. Type mismatch: Infix relation.
+>>>	newmember? notin members
+	Expected LHS type: [X]
+	Actual LHS type: UnknownType
+	Expected RHS type: (P [X])
+	Actual RHS type: UnknownType
+--- Typing error. "club.zbx" Line 34. Type mismatch: Infix relation.
+>>>	members < MaximumClubSize
+	Expected LHS type: Z
+	Actual LHS type: UnknownType
+	Expected RHS type: Z
+	Actual RHS type: Z
+--- Typing error. "club.zbx" Line 36. Type mismatch: 
+	LHS and RHS must have matching types.
+>>>	committee' = committee
+	LHS type: UnknownType
+	RHS type: UnknownType
+--- Warning. Indefinite type in schema box.
+End of main file: club.zbx
+Log written in "club.log"
+
+
+Log closed at: Thu Dec 04 23:26:51 2014
+
