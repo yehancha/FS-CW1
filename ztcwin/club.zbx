@@ -32,7 +32,7 @@
 	|-------
 	| newmember? notin members;
 	| # members < MaximumClubSize;
-	| members' = members || newmember?;
+	| members' = members || { newmember? };
 	| committee' = committee;
 	| report! = Success
 	-------------------------------------

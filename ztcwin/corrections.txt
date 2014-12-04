@@ -114,3 +114,21 @@ Fixed:
 	Expected RHS type: Z
 	Actual RHS type: Z
 	
+Error 06
+========
+Type mismatch in "set union" at "members || newmember?" since the "newmember?"
+is not an element of power set of STUDENT as "members" is.
+"newmember?" is only an element of STUDENT.
+
+Correction:
+Changed "newmember?" to "{ newmember? }" so it becomes an element of power set
+of STUDENT.
+
+Fixed:
+--- Typing error. "club.zbx" Line 35. Type mismatch: Infix expression
+>>>	members || newmember?
+	Expected type of the infix expression: ((P [X]) x (P [X]))
+--- Typing error. "club.zbx" Line 35. Type mismatch: Right-hand side
+>>>	newmember?
+	Expected type: (P STUDENT)
+	Actual type: STUDENT
