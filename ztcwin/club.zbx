@@ -1,7 +1,7 @@
 
 	specification
 	
-	[ STUDENTS ]
+	[ STUDENT ]
 	
 	CLUB_NAME ::= ECS_Club | Football | Tennis | Chess | Drama
 	

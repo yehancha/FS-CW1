@@ -2,6 +2,10 @@ Error 01
 ========
 Have used wrong syntax "subeq" at two points.
 
+Correction:
+Changed both "subeq" to "subseteq"
+
+Fixed:
 --- Syntax error. "club.zbx" Line 22, near ";"
 	Expecting: "=" "in" (infix relation symbol) "_inrel-id_"
 >>>	committee subeq members ;
@@ -10,14 +14,16 @@ Have used wrong syntax "subeq" at two points.
 	Expecting: "=" "in" (infix relation symbol) "_inrel-id_"
 >>>		-------------------------------------
 
-Correction:
-Changed both "subeq" to "subseteq"
 
 Error 02
 ========
 Spelling mistake in Basic Type "[ STUDENTS ]". It must be "STUDENT" without taling 'S'.
 Because of this, number of errors occurred.
 
+Correction:
+Changed "[ STUDENTS ]" to "[ STUDENT ]".
+
+Fixed:
 --- Typing error. "club.zbx" Line 17. Undefined name: STUDENT
 --- Typing error. "club.zbx" Line 17. Set expected: 
 >>>	STUDENT
@@ -37,20 +43,6 @@ Because of this, number of errors occurred.
 	Actual LHS type: UnknownType
 	Expected RHS type: (P [X])
 	Actual RHS type: UnknownType
---- Typing error. "club.zbx" Line 23. Type mismatch: Infix relation.
->>>	committee <= MaximumCommitteeSize
-	Expected LHS type: Z
-	Actual LHS type: UnknownType
-	Expected RHS type: Z
-	Actual RHS type: Z
---- Typing error. "club.zbx" Line 24. Type mismatch: Infix relation.
->>>	president subseteq committee
-	Expected LHS type: (P [X])
-	Actual LHS type: UnknownType
-	Expected RHS type: (P [X])
-	Actual RHS type: UnknownType
---- Warning. Indefinite type in schema box.
-... Type checking Schema box: JoinClub_Success. "club.zbx" Lines 27-37
 --- Typing error. "club.zbx" Line 28. Undefined name: STUDENT
 --- Typing error. "club.zbx" Line 28. Set expected: 
 >>>	STUDENT
@@ -70,18 +62,9 @@ Because of this, number of errors occurred.
 	Actual LHS type: UnknownType
 	Expected RHS type: (P [X])
 	Actual RHS type: UnknownType
---- Typing error. "club.zbx" Line 34. Type mismatch: Infix relation.
->>>	members < MaximumClubSize
-	Expected LHS type: Z
-	Actual LHS type: UnknownType
-	Expected RHS type: Z
-	Actual RHS type: Z
 --- Typing error. "club.zbx" Line 36. Type mismatch: 
 	LHS and RHS must have matching types.
 >>>	committee' = committee
 	LHS type: UnknownType
 	RHS type: UnknownType
---- Warning. Indefinite type in schema box.
-
-Correction:
-Changed "[ STUDENTS ]" to "[ STUDENT ]".
+	
