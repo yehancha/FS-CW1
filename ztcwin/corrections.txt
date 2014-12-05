@@ -1,3 +1,17 @@
+Error 00
+========
+In the initial Club specification in the tute, semicolons are not there to separate
+variable definitions or invariants. Because plain specification doesn't need those.
+But it is obvious to have semicolons to separate variable definitions and invariants
+in ZBX form.
+
+In the initial Club specification in the tute, there are no empty lines between
+type definitions. Because plain specification doesn't need those. But it is obvious
+to have empty lines to separate type definitions in ZBX form.
+
+So these things are fixed at the initial writing of ZBX specification. Thus not
+included in errors or corrections.
+
 Error 01
 ========
 Have used wrong syntax "subeq" at two points.
