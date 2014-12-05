@@ -13,6 +13,7 @@
 	| MaximumCommitteeSize = 10
 	
 	REPORT ::= Success | Error_Already_Member | Error_No_Space
+		| Error_Not_Member | Error_Is_President
 	
 	---Club------------------------------
 	| name : CLUB_NAME;
@@ -86,5 +87,93 @@ New member cannot join the club since:
 
 	JoinClub =^= JoinClub_Success \/ JoinClub_Error_Already_Member
 		\/ JoinClub_Error_No_Space
+		
+LeaveClub
+=========
+
+Committee member successfully leaves the club
+
+	---LeaveClub_Success_Club_And_Committee---------
+	| Delta Club;
+	| leavingmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| leavingmember? in committee;
+	| leavingmember? /= president;
+	| committee' = committee \ { leavingmember? };
+	| members' = members \ { leavingmember? };
+	| name' = name;
+	| president' = president;
+	| report! = Success
+	------------------------------------------------
+	
+Club member successfully leaves the club
+
+	---LeaveClub_Success_Club---------
+	| Delta Club;
+	| leavingmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| leavingmember? notin committee;
+	| leavingmember? in members;
+	| members' = members \ { leavingmember? };
+	| name' = name;
+	| committee' = committee;
+	| president' = president;
+	| report! = Success
+	------------------------------------------------
+	
+Successful LeaveClub
+	
+	LeaveClub_Success =^= LeaveClub_Success_Club_And_Committee
+		\/ LeaveClub_Success_Club
+	
+Member cannot leave the club since he/she is the president
+
+	---LeaveClub_Error_Is_President-------------------
+	| Xi Club;
+	| leavingmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| leavingmember? = president;
+	| report! = Error_Is_President
+	------------------------------------------------
+	
+Student is not in the club to leave
+
+	---LeaveClub_Error_Not_Member-------------------
+	| Xi Club;
+	| leavingmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| leavingmember? notin members;
+	| report! = Error_Not_Member
+	------------------------------------------------
+	
+LeaveClub error
+	
+	LeaveClub_Error =^= LeaveClub_Error_Is_President
+		\/ LeaveClub_Error_Not_Member
+		
+Total LeaveClub
+
+	%% operation LeaveClub
+
+	LeaveClub =^= LeaveClub_Success \/ LeaveClub_Error
+	
+CommitteeMembers
+================
+Prints the members of the committee
+
+	%% operation CommitteeMembers
+
+	---CommitteeMembers-----------------------------
+	| Xi Club;
+	| committeemembers! : P STUDENT;
+	| report! : REPORT
+	|-------
+	| committeemembers! = committee;
+	| report! = Success
+	------------------------------------------------
 	
 	end specification

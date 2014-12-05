@@ -1,0 +1,34 @@
+
+Log opened at: Sat Dec 06 00:51:11 2014
+
+... Initializing.
+... Loading Z mathematical tools library: math0.zbx
+Parsing main file: club.zbx
+... Type checking Free type definition: STUDENT. "club.zbx" Line 4
+... Type checking Free type definition: CLUB_NAME. "club.zbx" Line 6
+... Type checking Axiom box. "club.zbx" Lines 8-13
+... Type checking Free type definition: REPORT. "club.zbx" Lines 15-16
+... Type checking Schema box: Club. "club.zbx" Lines 18-27
+    Pragma `init-schema', parameter: InitialClub
+... Type checking Schema box: InitialClub. "club.zbx" Lines 32-38
+... Type checking Schema box: JoinClub_Success. "club.zbx" Lines 47-58
+... Type checking Schema box: JoinClub_Error_Already_Member. "club.zbx" Lines 64-70
+... Type checking Schema box: JoinClub_Error_No_Space. "club.zbx" Lines 76-81
+    Pragma `operation', parameter: JoinClub
+... Type checking Schema definition: JoinClub. "club.zbx" Lines 88-89
+... Type checking Schema box: LeaveClub_Success_Club_And_Committee. "club.zbx" Lines 96-107
+... Type checking Schema box: LeaveClub_Success_Club. "club.zbx" Lines 112-123
+... Type checking Schema definition: LeaveClub_Success. "club.zbx" Lines 128-129
+... Type checking Schema box: LeaveClub_Error_Is_President. "club.zbx" Lines 133-139
+... Type checking Schema box: LeaveClub_Error_Not_Member. "club.zbx" Lines 144-150
+... Type checking Schema definition: LeaveClub_Error. "club.zbx" Lines 155-156
+    Pragma `operation', parameter: LeaveClub
+... Type checking Schema definition: LeaveClub. "club.zbx" Line 162
+    Pragma `operation', parameter: CommitteeMembers
+... Type checking Schema box: CommitteeMembers. "club.zbx" Lines 170-176
+End of main file: club.zbx
+Log written in "club.log"
+
+
+Log closed at: Sat Dec 06 00:51:11 2014
+
