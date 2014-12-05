@@ -26,7 +26,7 @@
 	
 	---JoinClub_Success------------------
 	| members', members : P STUDENT;
-	| committee', committee : P STUDENT;
+	| committee, committee : P STUDENT;
 	| newmember? : STUDENT;
 	| report! : REPORT
 	|-------
