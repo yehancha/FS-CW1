@@ -150,7 +150,7 @@ Student is not in the club to leave
 	| report! = Error_Not_Member
 	------------------------------------------------
 	
-Error LeaveClub
+LeaveClub error
 	
 	LeaveClub_Error =^= LeaveClub_Error_Is_President
 		\/ LeaveClub_Error_Not_Member
