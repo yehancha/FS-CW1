@@ -12,7 +12,7 @@
 	| MaximumClubSize = 25;
 	| MaximumCommitteeSize = 10
 	
-	REPORT ::= Success
+	REPORT ::= Success | Error_Already_Member | Error_No_Space
 	
 	---Club------------------------------
 	| name : CLUB_NAME;
@@ -36,6 +36,11 @@
 	| committee' = { Yehan, Praminda, Navin };
 	| president' = Yehan
 	-------------------------------------
+
+JoinClub
+========
+New member can join the club successfully since he is not a bember already and
+since there are space left for hin in the club.
 	
 	---JoinClub_Success------------------
 	| Delta Club;
@@ -50,5 +55,33 @@
 	| president' = president;
 	| report! = Success
 	-------------------------------------
+
+New member cannot join the club since he/she is already a member
+	
+	---JoinClub_Error_Already_Member-----
+	| Xi Club;
+	| newmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| newmember? in members;
+	| report! = Error_Already_Member
+	-------------------------------------
+	
+New member cannot join the club since the club is full
+	
+	---JoinClub_Error_No_Space-----------
+	| Xi Club;
+	| report! : REPORT
+	|-------
+	| # members = MaximumClubSize;
+	| report! = Error_No_Space
+	-------------------------------------
+	
+ Total JoinClub operation
+
+	%% operation JoinClub
+
+	JoinClub =^= JoinClub_Success \/ JoinClub_Error_Already_Member
+		\/ JoinClub_Error_No_Space
 	
 	end specification

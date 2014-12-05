@@ -1,0 +1,24 @@
+
+Log opened at: Fri Dec 05 23:17:32 2014
+
+... Initializing.
+... Loading Z mathematical tools library: math0.zbx
+Parsing main file: club.zbx
+... Type checking Free type definition: STUDENT. "club.zbx" Line 4
+... Type checking Free type definition: CLUB_NAME. "club.zbx" Line 6
+... Type checking Axiom box. "club.zbx" Lines 8-13
+... Type checking Free type definition: REPORT. "club.zbx" Line 15
+... Type checking Schema box: Club. "club.zbx" Lines 17-26
+    Pragma `init-schema', parameter: InitialClub
+... Type checking Schema box: InitialClub. "club.zbx" Lines 31-37
+... Type checking Schema box: JoinClub_Success. "club.zbx" Lines 45-56
+... Type checking Schema box: JoinClub_Error_Already_Member. "club.zbx" Lines 61-67
+... Type checking Schema box: JoinClub_Error_No_Space. "club.zbx" Lines 72-77
+    Pragma `operation', parameter: JoinClub
+... Type checking Schema definition: JoinClub. "club.zbx" Lines 84-85
+End of main file: club.zbx
+Log written in "club.log"
+
+
+Log closed at: Fri Dec 05 23:17:32 2014
+
