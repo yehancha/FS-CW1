@@ -1,14 +1,16 @@
 
 	specification
 	
-	[ STUDENT ]
+	STUDENT ::= Yehan | Praminda | Grainier | Anushka | Navin | Nadil | Sanidu
 	
 	CLUB_NAME ::= ECS_Club | Football | Tennis | Chess | Drama
 	
 	| MaximumCommitteeSize : N;
 	| MaximumClubSize : N
 	|-------
-	| MaximumCommitteeSize <= MaximumClubSize
+	| MaximumCommitteeSize <= MaximumClubSize;
+	| MaximumClubSize = 25;
+	| MaximumCommitteeSize = 10
 	
 	REPORT ::= Success
 	
@@ -25,15 +27,16 @@
 	-------------------------------------
 	
 	---JoinClub_Success------------------
-	| members', members : P STUDENT;
-	| committee', committee : P STUDENT;
+	| Delta Club;
 	| newmember? : STUDENT;
 	| report! : REPORT
 	|-------
 	| newmember? notin members;
 	| # members < MaximumClubSize;
 	| members' = members || { newmember? };
+	| name' = name;
 	| committee' = committee;
+	| president' = president;
 	| report! = Success
 	-------------------------------------
 	
