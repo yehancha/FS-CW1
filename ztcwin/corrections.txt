@@ -132,3 +132,22 @@ Fixed:
 >>>	newmember?
 	Expected type: (P STUDENT)
 	Actual type: STUDENT
+	
+Error 07
+========
+Note: This error must have caught earlier this point. The error is in the original
+source of the Club specification. But I have initially typed it with the correction.
+But I have found out now. To be consistent with the coursework, I reintroduced
+the error and corrected it as follows.
+
+In JoinClub_Success, there is a variable defined as "committee, committee : P STUDENT".
+One of these "committee"s must be "committee'". Because of this, an undefined variable
+error was also reported.
+
+Correction:
+Changed first "committee" variable to "committee'".
+
+Fixed:
+--- Typing error. "club.zbx" Line 29. Duplicate definition of name:  committee
+--- Typing error. "club.zbx" Line 36. Undefined name: committee'
+
