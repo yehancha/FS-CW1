@@ -26,6 +26,17 @@
 	| president in committee
 	-------------------------------------
 	
+	%% init-schema InitialClub
+	
+	---InitialClub-----------------------
+	| Club'
+	|-------
+	| name' = Chess;
+	| members' = { Yehan, Praminda, Grainier, Anushka, Navin, Nadil, Sanidu };
+	| committee' = { Yehan, Praminda, Navin };
+	| president' = Yehan
+	-------------------------------------
+	
 	---JoinClub_Success------------------
 	| Delta Club;
 	| newmember? : STUDENT;
