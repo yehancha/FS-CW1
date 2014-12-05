@@ -1,0 +1,167 @@
+Error 00
+========
+In the initial Club specification in the tute, semicolons are not there to separate
+variable definitions or invariants. Because plain specification doesn't need those.
+But it is obvious to have semicolons to separate variable definitions and invariants
+in ZBX form.
+
+In the initial Club specification in the tute, there are no empty lines between
+type definitions. Because plain specification doesn't need those. But it is obvious
+to have empty lines to separate type definitions in ZBX form.
+
+So these things are fixed at the initial writing of ZBX specification. Thus not
+included in errors or corrections.
+
+Error 01
+========
+Have used wrong syntax "subeq" at two points.
+
+Correction:
+Changed both "subeq" to "subseteq"
+
+Fixed:
+--- Syntax error. "club.zbx" Line 22, near ";"
+	Expecting: "=" "in" (infix relation symbol) "_inrel-id_"
+>>>	committee subeq members ;
+--- Syntax error. "club.zbx" Line 26, near "	-------------------------------------
+"
+	Expecting: "=" "in" (infix relation symbol) "_inrel-id_"
+>>>		-------------------------------------
+
+
+Error 02
+========
+Spelling mistake in Basic Type "[ STUDENTS ]". It must be "STUDENT" without taling 'S'.
+Because of this, number of errors occurred.
+
+Correction:
+Changed "[ STUDENTS ]" to "[ STUDENT ]".
+
+Fixed:
+--- Typing error. "club.zbx" Line 17. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 17. Set expected: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 17. Illegal type expression: 
+>>>	P STUDENT
+--- Typing error. "club.zbx" Line 18. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 18. Set expected: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 18. Illegal type expression: 
+>>>	P STUDENT
+--- Typing error. "club.zbx" Line 19. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 19. Illegal type expression: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 22. Type mismatch: Infix relation.
+>>>	committee subseteq members
+	Expected LHS type: (P [X])
+	Actual LHS type: UnknownType
+	Expected RHS type: (P [X])
+	Actual RHS type: UnknownType
+--- Typing error. "club.zbx" Line 28. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 28. Set expected: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 28. Illegal type expression: 
+>>>	P STUDENT
+--- Typing error. "club.zbx" Line 29. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 29. Set expected: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 29. Illegal type expression: 
+>>>	P STUDENT
+--- Typing error. "club.zbx" Line 30. Undefined name: STUDENT
+--- Typing error. "club.zbx" Line 30. Illegal type expression: 
+>>>	STUDENT
+--- Typing error. "club.zbx" Line 33. Type mismatch: Infix relation.
+>>>	newmember? notin members
+	Expected LHS type: [X]
+	Actual LHS type: UnknownType
+	Expected RHS type: (P [X])
+	Actual RHS type: UnknownType
+--- Typing error. "club.zbx" Line 36. Type mismatch: 
+	LHS and RHS must have matching types.
+>>>	committee' = committee
+	LHS type: UnknownType
+	RHS type: UnknownType
+	
+Error 03
+========
+Type mismatch of LHS and RHS of a system invariant at "committee <= MaximumCommitteeSize".
+
+Correction:
+Used cardinality of committee. So the correction is "# committee <= MaximumCommitteeSize"
+
+Fixed:
+--- Typing error. "club.zbx" Line 23. Type mismatch: Infix relation.
+>>>	committee <= MaximumCommitteeSize
+	Expected LHS type: Z
+	Actual LHS type: (P STUDENT)
+	Expected RHS type: Z
+	Actual RHS type: Z
+	
+Error 04
+========
+"president" has defined as a subset of "committee" set which is not true.
+"president" is an element of "committee" set.
+
+Correction:
+Changed "president subseteq committee" to "president in committee".
+
+Fixed:
+--- Typing error. "club.zbx" Line 24. Type mismatch: Infix relation.
+>>>	president subseteq committee
+	Expected LHS type: (P [X])
+	Actual LHS type: STUDENT
+	Expected RHS type: (P [X])
+	Actual RHS type: (P STUDENT)
+	
+Error 05
+========
+Type mismatch of LHS and RHS of a system invariant at "members < MaximumClubSize".
+
+Correction:
+Used cardinality of members. So the correction is "# members < MaximumClubSize"
+
+Fixed:
+--- Typing error. "club.zbx" Line 34. Type mismatch: Infix relation.
+>>>	members < MaximumClubSize
+	Expected LHS type: Z
+	Actual LHS type: (P STUDENT)
+	Expected RHS type: Z
+	Actual RHS type: Z
+	
+Error 06
+========
+Type mismatch in "set union" at "members || newmember?" since the "newmember?"
+is not an element of power set of STUDENT as "members" is.
+"newmember?" is only an element of STUDENT.
+
+Correction:
+Changed "newmember?" to "{ newmember? }" so it becomes an element of power set
+of STUDENT.
+
+Fixed:
+--- Typing error. "club.zbx" Line 35. Type mismatch: Infix expression
+>>>	members || newmember?
+	Expected type of the infix expression: ((P [X]) x (P [X]))
+--- Typing error. "club.zbx" Line 35. Type mismatch: Right-hand side
+>>>	newmember?
+	Expected type: (P STUDENT)
+	Actual type: STUDENT
+	
+Error 07
+========
+Note: This error must have caught earlier this point. The error is in the original
+source of the Club specification. But I have initially typed it with the correction.
+But I have found out now. To be consistent with the coursework, I reintroduced
+the error and corrected it as follows.
+
+In JoinClub_Success, there is a variable defined as "committee, committee : P STUDENT".
+One of these "committee"s must be "committee'". Because of this, an undefined variable
+error was also reported.
+
+Correction:
+Changed first "committee" variable to "committee'".
+
+Fixed:
+--- Typing error. "club.zbx" Line 29. Duplicate definition of name:  committee
+--- Typing error. "club.zbx" Line 36. Undefined name: committee'
+

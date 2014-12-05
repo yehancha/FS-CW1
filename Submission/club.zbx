@@ -1,0 +1,179 @@
+
+	specification
+	
+	STUDENT ::= Yehan | Praminda | Grainier | Anushka | Navin | Nadil | Sanidu
+	
+	CLUB_NAME ::= ECS_Club | Football | Tennis | Chess | Drama
+	
+	| MaximumCommitteeSize : N;
+	| MaximumClubSize : N
+	|-------
+	| MaximumCommitteeSize <= MaximumClubSize;
+	| MaximumClubSize = 25;
+	| MaximumCommitteeSize = 10
+	
+	REPORT ::= Success | Error_Already_Member | Error_No_Space
+		| Error_Not_Member | Error_Is_President
+	
+	---Club------------------------------
+	| name : CLUB_NAME;
+	| members : P STUDENT;
+	| committee : P STUDENT;
+	| president : STUDENT
+	|-------
+	| # members <= MaximumClubSize;
+	| committee subseteq members;
+	| # committee <= MaximumCommitteeSize;
+	| president in committee
+	-------------------------------------
+	
+	%% init-schema InitialClub
+	
+	---InitialClub-----------------------
+	| Club'
+	|-------
+	| name' = Chess;
+	| members' = { Yehan, Praminda, Grainier, Anushka, Navin, Nadil, Sanidu };
+	| committee' = { Yehan, Praminda, Navin };
+	| president' = Yehan
+	-------------------------------------
+
+JoinClub
+========
+New member can join the club successfully since:
+* he/she is not a bember already,
+* there are space left for hin in the club.
+	
+	---JoinClub_Success------------------
+	| Delta Club;
+	| newmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| newmember? notin members;
+	| # members < MaximumClubSize;
+	| members' = members || { newmember? };
+	| name' = name;
+	| committee' = committee;
+	| president' = president;
+	| report! = Success
+	-------------------------------------
+
+New member cannot join the club since:
+* he/she is already a member.
+	
+	---JoinClub_Error_Already_Member-----
+	| Xi Club;
+	| newmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| newmember? in members;
+	| report! = Error_Already_Member
+	-------------------------------------
+	
+New member cannot join the club since:
+* the club is full
+	
+	---JoinClub_Error_No_Space-----------
+	| Xi Club;
+	| report! : REPORT
+	|-------
+	| # members = MaximumClubSize;
+	| report! = Error_No_Space
+	-------------------------------------
+	
+ Total JoinClub operation
+
+	%% operation JoinClub
+
+	JoinClub =^= JoinClub_Success \/ JoinClub_Error_Already_Member
+		\/ JoinClub_Error_No_Space
+		
+LeaveClub
+=========
+
+Committee member successfully leaves the club
+
+	---LeaveClub_Success_Club_And_Committee---------
+	| Delta Club;
+	| leavingmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| leavingmember? in committee;
+	| leavingmember? /= president;
+	| committee' = committee \ { leavingmember? };
+	| members' = members \ { leavingmember? };
+	| name' = name;
+	| president' = president;
+	| report! = Success
+	------------------------------------------------
+	
+Club member successfully leaves the club
+
+	---LeaveClub_Success_Club---------
+	| Delta Club;
+	| leavingmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| leavingmember? notin committee;
+	| leavingmember? in members;
+	| members' = members \ { leavingmember? };
+	| name' = name;
+	| committee' = committee;
+	| president' = president;
+	| report! = Success
+	------------------------------------------------
+	
+Successful LeaveClub
+	
+	LeaveClub_Success =^= LeaveClub_Success_Club_And_Committee
+		\/ LeaveClub_Success_Club
+	
+Member cannot leave the club since he/she is the president
+
+	---LeaveClub_Error_Is_President-------------------
+	| Xi Club;
+	| leavingmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| leavingmember? = president;
+	| report! = Error_Is_President
+	------------------------------------------------
+	
+Student is not in the club to leave
+
+	---LeaveClub_Error_Not_Member-------------------
+	| Xi Club;
+	| leavingmember? : STUDENT;
+	| report! : REPORT
+	|-------
+	| leavingmember? notin members;
+	| report! = Error_Not_Member
+	------------------------------------------------
+	
+Error LeaveClub
+	
+	LeaveClub_Error =^= LeaveClub_Error_Is_President
+		\/ LeaveClub_Error_Not_Member
+		
+Total LeaveClub
+
+	%% operation LeaveClub
+
+	LeaveClub =^= LeaveClub_Success \/ LeaveClub_Error
+	
+CommitteeMembers
+================
+Prints the members of the committee
+
+	%% operation CommitteeMembers
+
+	---CommitteeMembers-----------------------------
+	| Xi Club;
+	| committeemembers! : P STUDENT;
+	| report! : REPORT
+	|-------
+	| committeemembers! = committee;
+	| report! = Success
+	------------------------------------------------
+	
+	end specification
